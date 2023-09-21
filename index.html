@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính năm Can Chi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            margin: 100px auto;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Tính năm Can Chi</h1>
+        <label for="yearInput">Nhập năm hiện tại:</label>
+        <input type="number" id="yearInput" placeholder="Nhập năm" min="0">
+        <button onclick="calculateCanChi()">Tính</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateCanChi() {
+            const yearInput = document.getElementById("yearInput").value;
+            if (yearInput) {
+                const canList = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
+                const chiList = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+                const canIndex = (yearInput - 4) % 10;
+                const chiIndex = (yearInput - 4) % 12;
+                const can = canList[canIndex];
+                const chi = chiList[chiIndex];
+                const resultText = `Năm ${yearInput} là năm ${can} ${chi}`;
+                document.getElementById("result").textContent = resultText;
+            } else {
+                alert("Vui lòng nhập năm hiện tại.");
+            }
+        }
+    </script>
+</body>
+</html>
